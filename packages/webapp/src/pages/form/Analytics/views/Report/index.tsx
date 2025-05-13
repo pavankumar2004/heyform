@@ -1,7 +1,6 @@
 import { flattenFields, htmlUtils } from '@heyform-inc/answer-utils'
 import {
   CHOICES_FIELD_KINDS,
-  CUSTOM_COLUMN_CHOICE_KINDS,
   FieldKindEnum,
   QUESTION_FIELD_KINDS
 } from '@heyform-inc/shared-types-enums'
@@ -19,6 +18,12 @@ import { useParam } from '@/utils'
 
 import { FieldList } from './FieldList'
 import { ReportItem } from './ReportItem'
+
+// Define the custom column choice kinds locally since it's not exported from shared-types-enums
+const CUSTOM_COLUMN_CHOICE_KINDS = [
+  FieldKindEnum.CUSTOM_SINGLE,
+  FieldKindEnum.CUSTOM_MULTIPLE
+].filter(Boolean) // Filter in case these enum values don't exist
 
 const CHOICE_KINDS = [FieldKindEnum.YES_NO, ...CHOICES_FIELD_KINDS, ...CUSTOM_COLUMN_CHOICE_KINDS]
 
